@@ -77,12 +77,30 @@ img {
     letter-spacing: 0.02em;
     padding: 24px 0;
     display: block;
+    transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .nav-link:hover,
 .nav-link:focus {
     color: #404BBF;
 }
+
+.current{
+    position: relative;
+    color: #404BBF;
+}
+
+.current::after{
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -1px;
+    height: 4px;
+    border-radius: 2px;
+    background-color: #404BBF;
+    width: 100%;
+}
+
 .contact {
     font-style: normal;
     margin-left: auto;
@@ -98,6 +116,7 @@ img {
     font-size: 16px;
     line-height: 1.5;
     letter-spacing: 0.02em;
+    transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .contact-link:hover,
@@ -107,13 +126,16 @@ img {
 
 /**------EFFECTIVE__SOLUTIONS-----------------*/
 
-/*.main-container {
-    display: block;
-}*/
 
 .main-part {
     background-color: #2E2F42;
+    background-image: linear-gradient(to bottom, rgba(46, 47, 66, 0.7), rgba(46, 47, 66, 0.7)), url(../images/background-opt.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
     padding: 188px 0;
+    max-width: 1440px;
+    margin: 0 auto;
 }
 .main-title {
     color: #FFF;
@@ -145,6 +167,7 @@ img {
     min-width: 169px;
     height: 56px;
     margin-top: 48px;
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .main-button:hover,
@@ -206,8 +229,21 @@ img {
 
 .pros-item {
     width: calc((100% - 24px * 3) / 4);
-
 }
+
+.container-pros{
+    width: 100%;
+    height: 112px;
+    background-color: #F4F4FD;
+    border-radius: 4px;
+    border: 1px solid #8E8F99;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 8px;
+}
+
+
 
 /**-----------OUR TEAM------------------------*/
 
@@ -261,7 +297,37 @@ img {
     line-height: 1.5;
     letter-spacing: 0.02em;
     margin-top: 0px;
+    margin-bottom: 8px;
 }
+
+.social-media-list{
+    display: flex;
+    gap: 24px;
+    align-items: center;
+    justify-content: center;
+}
+
+.social-media-item{
+    width: 40px;
+    height: 40px;
+}
+
+.social-media-link{
+    background-color: #4D5AE5;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.social-media-link:hover{
+    background-color: #404BBF;
+}
+
+
 
 /**-----------PORTFOLIO--------------------------*/
 
@@ -291,11 +357,44 @@ img {
 .portfolio-item {
     background: #FFF;
     width: calc((100% - 24px * 2) / 3);
+    transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
 }
 
-/*.portfolio-img {
-    display: block;
-} */
+.portfolio-item:hover .portfolio-cover-wrap{
+    transform: translateY(0%);
+}
+
+
+.portfolio-item:hover{
+    box-shadow: 0px 2px 1px 0px rgba(46, 47, 66, 0.08),
+        0px 1px 1px 0px rgba(46, 47, 66, 0.16),
+        0px 1px 6px 0px rgba(46, 47, 66, 0.08);
+}
+
+.portf-item-wrap{
+    position: relative;
+    overflow: hidden;
+}
+
+.portfolio-cover-wrap{
+    position: absolute;
+    display: flex;
+    align-items: center;
+    top: 0;
+    background-color: #4D5AE5;
+    padding: 40px 32px 164px 32px;
+    height: 100%;
+    transform: translateY(100%);
+    transition: transform 300ms linear;
+}
+
+.portfolio-cover-text{
+    color: #F4F4FD;
+    font-size: 16px;
+    line-height: 1.5;
+    letter-spacing: 0.02em;
+}
 
 .container-port{
     text-align: left;
@@ -329,10 +428,8 @@ img {
     padding: 100px 0;
 }
 
-/*.footer-container{
-    display: flex;
-    flex-direction: column;
-}*/
+.footer-container{
+}
 
 .footer-logo {
     color: #4D5AE5;
@@ -357,4 +454,44 @@ img {
     line-height: 1.5;
     letter-spacing: 0.02em;
     max-width: 264px;
+}
+
+
+.social-media-text{
+    color: #FFF;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 1.5;
+    letter-spacing: 0.02em;
+    margin-bottom: 16px;
+    display: flex;
+}
+
+.social-medias{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.footer-soc-media-item{
+    width: 40px;
+    height: 40px;
+}
+
+.footer-soc-media-link{
+    background-color: #4D5AE5;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.footer-soc-media-link:hover {
+    background-color: #31D0AA;
 }
